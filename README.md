@@ -117,7 +117,7 @@ Setiap piksel diklasifikasikan ke dalam kategori lahan berdasarkan nilai matriks
 
 | Kode Warna (BGR/RGB) | Kategori Lahan / Kelas | Target Visual |
 | :--- | :--- | :--- |
-| `[0, 255, 255]` | Urban | Kuning / Cyan |
+| `[0, 255, 255]` | Urban | Cyan |
 | `[255, 255, 0]` | Agriculture | Kuning |
 | `[255, 0, 255]` | Rangeland | Magenta |
 | `[0, 0, 255]` | Water | Biru |
