@@ -1,1 +1,24 @@
+# Mengabaikan folder data mentah dan citra satelit
+data_DeepGlobe/
+images/
+masks/
 
+# Mengabaikan folder output Arsitektur Medallion (file berukuran besar)
+bronze_layer/
+silver_layer/
+gold_layer/
+*.parquet
+
+# Mengabaikan folder cache sistem dan Python
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# Mengabaikan konfigurasi environment lokal
+.env
+venv/
+env/
+
+# Mengabaikan file sistem operasi
+.DS_Store
+Thumbs.db
