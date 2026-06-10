@@ -270,3 +270,16 @@ df_gold.write.mode("overwrite").parquet("D:/ABD_Tubes/gold_layer/gold.parquet")
 [2] DeepGlobe Land Cover Classification Challenge Dataset, 2018. CVPR Workshop.
 
 [3] M. Armbrust et al., “Delta Lake: High-Performance ACID Table Storage over Cloud Object Stores,” *Proceedings of the VLDB Endowment*, vol. 13, no. 12, pp. 3411–3424, 2020.
+
+[3]	A. M. Burgueño et al., “Scalable approach for high-resolution land cover: a case study in the Mediterranean Basin,” J. Big Data, vol. 10, no. 1, Dec. 2023, doi: 10.1186/s40537-023-00770-z.
+
+[4]	H. Guo, Big Earth Data in Support of the Sustainable Development Goals (2022)—The Belt and Road. Singapore: Springer Nature Singapore Pte Ltd., 2024.
+
+[5]	A. Cucus, R. Yuli Endra, Y. Aprilinda, and Y. Yanu Dharmawan, “Lapisan Arsitektur Big Data dalam Kajian Studi Pustaka,” Jurnal Sistem Informasi dan Telematika (Telekomunikasi, Multimedia dan Informatika), vol. 12, p. 22, Jun. 2021.
+
+[6]	A. A. Kurniawan, M. Mustikasari, and P. Korespondensi, “Evaluasi Kinerja MlLib Apache Spark Pada Klasifikasi Berita PalsuDalam Bahasa Indonesia,” Jurnal Teknologi Infoemasi dan Ilmu Komputer (JTIIK), vol. 9, no. 3, pp. 489–500, Jun. 2022, doi: 10.25126/jtiik.202293538.
+
+[7]	D. Marlina, “STRING (Satuan Tulisan Riset dan Inovasi Teknologi) Klasifikasi Tutupan Lahan Pada Citra Sentinel-2 Kabupaten Kuningan Dengan NVDI dan Algoritme Random Forest,” Aug. 2022. [Online]. Available: https://earthexplorer.usgs.gov/.
+
+[8]	K. Tutupan et al., “Klasifikasi Tutupan Lahan Berdasarkan Random Forest Algorithm Menggunakan Cloud Computing Platform,” Mar. 2022.
+
