@@ -1,5 +1,5 @@
 # SDGs15-bigdata-itera
-# Klasifikasi Tutupan Lahan DeepGlobe dengan Medallion Architecture
+# Analisis Tutupan Lahan Berbasis *Big Data Pipeline* untuk Pemantauan Ekosistem Daratan Menggunakan Arsitektur *Medallion*
 
 <p align="center">
   <img src="https://img.shields.io/badge/Apache%20Spark-3.5.8-orange?style=for-the-badge&logo=apachespark&logoColor=white" />
