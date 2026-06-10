@@ -125,35 +125,6 @@ Setiap piksel diklasifikasikan ke dalam kategori lahan berdasarkan nilai matriks
 
 ---
 
-# sdg10-bigdata-itera
-
-Pipeline Big Data berbasis Apache Spark untuk klasifikasi tutupan lahan menggunakan dataset DeepGlobe dengan arsitektur Medallion (Bronze → Silver → Gold).
-
------
-
-## 🛠️ Teknologi
-
-|Kategori              |Teknologi     |Versi |Fungsi                                                             |
-|----------------------|--------------|------|-------------------------------------------------------------------|
-|Big Data Engine       |Apache Spark  |3.5.8 |Pemrosesan paralel lokal, manajemen DataFrame terdistribusi        |
-|Hadoop Windows Utility|winutils      |3.0.0 |Jembatan sistem berkas Windows agar kompatibel dengan API HDFS     |
-|Bahasa Pemrograman    |Python        |3.12  |Bahasa utama penulisan skrip pipeline & algoritma ML               |
-|Computer Vision       |OpenCV        |Latest|Library pembacaan citra satelit dan ekstraksi matriks warna BGR/RGB|
-|Format Penyimpanan    |Apache Parquet|—     |Penyimpanan data kolumnar terkompresi untuk memangkas I/O disk     |
-
------
-
-## 📊 Dataset
-
-|Atribut               |Spesifikasi                                                                                                                                                |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Nama Dataset          |DeepGlobe Land Cover Classification Dataset                                                                                                                |
-|Unit Observasi        |Piksel Individual Citra Satelit (pixel-level records)                                                                                                      |
-|Estimasi Baris Data   |~4.194.304 baris (per satu pasang gambar resolusi 2048 × 2048)                                                                                             |
-|Ekstraksi Masker Warna|`[0,255,255]` Cyan: Urban · `[255,255,0]` Kuning: Agriculture · `[255,0,255]` Magenta: Rangeland · `[0,0,255]` Biru: Water · `[255,255,255]` Putih: Unknown|
-
------
-
 ## 🚀 Cara Menjalankan
 
 ### Prasyarat — Environment Windows 11
@@ -284,7 +255,7 @@ df_gold.write.mode("overwrite").parquet("D:/ABD_Tubes/gold_layer/gold.parquet")
 |Implementasi Gold Layer  |✅ Selesai |Hari 4     |Rekayasa fitur menggunakan VectorAssembler           |
 |Pelatihan Model MLlib    |✅ Selesai |Hari 5     |Eksekusi RandomForestClassifier kedalaman 10         |
 |Validasi Akhir & Evaluasi|✅ Selesai |Hari 6     |Perhitungan akurasi kuantitatif via MulticlassMetrics|
-|Push GitHub & Dokumentasi|🟡 Progress|Hari 7     |Penyusunan draf laporan akademis Tubes               |
+|Push GitHub & Dokumentasi|✅ Selesai |Hari 7     |Penyusunan draf laporan akademis Tubes               |
 
 -----
 
