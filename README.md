@@ -166,8 +166,8 @@ SDGs15-bigdata-itera/
 ├── 📂 data_DeepGlobe/       ← DATA MENTAH CITRA (Excluded via .gitignore)
 │   ├── 📂 images/            ← Tempat file _sat.jpg
 │   └── 📂 masks/             ← Tempat file _mask.png
-├── 📂 bronze_layer/         ← Artefak Ingesti: Parquet nilai mentah piksel
-├── 📂 silver_layer/         ← Artefak Transformasi: Parquet fitur + Label kelas
+├── 📂 bronze_layer/         ← Artefak Ingesti: Data gambar asli terpilih satu
+├── 📂 silver_layer/         ← Artefak Transformasi: Transformasi gambar ke tabular dalam berbentuk Parquet fitur + Label kelas
 ├── 📂 gold_layer/           ← Artefak Analitik: Parquet fitur berwujud vektor siap latih
 ├── 📂 notebooks/
 │   └── pipeline_medallion.ipynb  ← File inti pengerjaan end-to-end Spark lokal
