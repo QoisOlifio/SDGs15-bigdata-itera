@@ -1,0 +1,5 @@
+pyspark==3.5.8
+findspark
+opencv-python
+numpy
+matplotlib
