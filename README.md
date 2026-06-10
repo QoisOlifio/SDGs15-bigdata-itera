@@ -86,11 +86,7 @@ Menggunakan **Medallion Architecture** (Bronze → Silver → Gold) yang dijalan
 │   • Validasi dimensi  • Parquet format • Labeling (0-4) • Siap Latih    │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
-
-# 🌍 DeepGlobe Land Cover Classification Pixel-Level Pipeline
-
-Projek ini berfokus pada pembangunan *data pipeline* performa tinggi untuk mengekstraksi, memproses, dan memetakan data berbasis piksel (*pixel-level records*) dari citra satelit **DeepGlobe Land Cover Dataset**. Menggunakan **Apache Spark** untuk pemrosesan paralel lokal dan format **Apache Parquet** untuk efisiensi penyimpanan skala besar.
-
+```
 ---
 
 ## 🛠️ Teknologi & Arsitektur Sistem
