@@ -86,3 +86,45 @@ Menggunakan **Medallion Architecture** (Bronze → Silver → Gold) yang dijalan
 │   • Validasi dimensi  • Parquet format • Labeling (0-4) • Siap Latih    │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
+
+# 🌍 DeepGlobe Land Cover Classification Pixel-Level Pipeline
+
+Projek ini berfokus pada pembangunan *data pipeline* performa tinggi untuk mengekstraksi, memproses, dan memetakan data berbasis piksel (*pixel-level records*) dari citra satelit **DeepGlobe Land Cover Dataset**. Menggunakan **Apache Spark** untuk pemrosesan paralel lokal dan format **Apache Parquet** untuk efisiensi penyimpanan skala besar.
+
+---
+
+## 🛠️ Teknologi & Arsitektur Sistem
+
+Berikut adalah komponen teknologi yang digunakan dalam mendesain *pipeline* ini:
+
+| Kategori | Teknologi | Versi | Fungsi |
+| :--- | :--- | :--- | :--- |
+| **Big Data Engine** | Apache Spark | 3.5.8 | Pemrosesan paralel lokal & manajemen DataFrame terdistribusi. |
+| **Hadoop Windows Utility** | winutils | 3.0.0 | Jembatan sistem berkas Windows agar kompatibel dengan API HDFS. |
+| **Bahasa Pemrograman** | Python | 3.12 | Bahasa utama penulisan skrip *pipeline* & algoritma Machine Learning. |
+| **Computer Vision** | OpenCV | *Latest* | Library pembacaan citra satelit dan ekstraksi matriks warna BGR/RGB. |
+| **Format Penyimpanan** | Apache Parquet | — | Penyimpanan data kolumnar terkompresi untuk memangkas I/O disk. |
+
+---
+
+## 📊 Detail Dataset
+
+Pemrosesan dilakukan hingga tingkat piksel individual untuk menangkap detail klasifikasi lahan secara presisi.
+
+### Spesifikasi Data
+* **Nama Dataset:** DeepGlobe Land Cover Classification Dataset
+* **Unit Observasi:** Piksel Individual Citra Satelit (*pixel-level records*)
+* **Estimasi Volume Data:** **~4.194.304 baris** (Dihasilkan dari per satu pasang gambar resolusi $2048 \times 2048$)
+
+### Skema Ekstraksi Masker Warna
+Setiap piksel diklasifikasikan ke dalam kategori lahan berdasarkan nilai matriks warna berikut:
+
+| Kode Warna (BGR/RGB) | Kategori Lahan / Kelas | Target Visual |
+| :--- | :--- | :--- |
+| `[0, 255, 255]` | Urban | Kuning / Cyan |
+| `[255, 255, 0]` | Agriculture | Kuning |
+| `[255, 0, 255]` | Rangeland | Magenta |
+| `[0, 0, 255]` | Water | Biru |
+| `[255, 255, 255]` | Unknown | Putih |
+
+---
