@@ -44,13 +44,12 @@ Menggunakan **Medallion Architecture** (Bronze → Silver → Gold) yang dijalan
 
 ## 👥 Anggota Tim
 
-|No |Nama                 |Peran                            |Tanggung Jawab Utama                                                                            |
-|:-:|:--------------------|:--------------------------------|:-----------------------------------------------------------------------------------------------|
-|1  |**[Nama Ketua Anda]**|🎯 Ketua / Project Integrator     |Koordinasi harian, penyusunan repositori, finalisasi proposal & laporan, integrasi modul        |
-|2  |**[Nama Anggota 2]** |🗃️ Data Engineer                  |Ingesti gambar mentah, translasi matriks piksel, membangun pipeline Bronze → Silver layer       |
-|3  |**[Nama Anggota 3]** |⚡ Spark Analytics Developer      |Rekayasa fitur Gold layer (VectorAssembler), tuning hyperparameter Random Forest                |
-|4  |**[Nama Anggota 4]** |📊 Baseline & Benchmark Specialist|Membuat pemrosesan sekuensial pembanding, mengukur rasio throughput & latensi Spark vs Pandas   |
-|5  |**[Nama Anggota 5]** |🖥️ Environment & DevOps Specialist|Konfigurasi Environment Variables (Hadoop/Spark), manajemen alokasi RAM Driver, optimasi IO disk|
+|No |Nama                 |NIM                           |                                                                      
+|:-:|:--------------------|:--------------------------------|
+|1  |**Qois Olifio**|123450067     |
+|2  |**Devyna Sonya Palupi Sanjaya** |123450007                |
+|3  |**Rosalia Siregar** |123450036     |
+|4  |**Zailani Satria** | 123450007|
 
 -----
 
