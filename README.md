@@ -159,7 +159,7 @@ Buka editor visual (VS Code atau Jupyter) lalu jalankan file `notebooks/pipeline
 ## 📁 Struktur Folder
 
 ```
-sdg10-bigdata-itera/
+sdgs15-bigdata-itera/
 ├── 📂 data_DeepGlobe/       ← DATA MENTAH CITRA (Excluded via .gitignore)
 │   ├── 📂 images/            ← Tempat file _sat.jpg
 │   └── 📂 masks/             ← Tempat file _mask.png
