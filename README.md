@@ -12,15 +12,15 @@
   <i>Implementasi Medallion Architecture Berbasis Apache Spark Lokal untuk Segmentasi Semantik Citra Satelit Ekstra Tinggi</i>
 </p>
 
----
+-----
 
 ## 📋 Daftar Isi
 
 - [Deskripsi Proyek](#-deskripsi-proyek)
 - [Anggota Tim](#-anggota-tim)
 - [Arsitektur Sistem](#-arsitektur-sistem)
-- [Teknologi](#-teknologi)
-- [Dataset](#-dataset)
+- [Teknologi & Arsitektur Sistem](#-teknologi--arsitektur-sistem)
+- [Detail Dataset](#-detail-dataset)
 - [Cara Menjalankan](#-cara-menjalankan)
 - [Struktur Folder](#-struktur-folder)
 - [Pipeline Medallion](#-pipeline-medallion)
@@ -28,30 +28,31 @@
 - [Status Proyek](#-status-proyek)
 - [Referensi](#-referensi)
 
----
+-----
 
 ## 🎯 Deskripsi Proyek
 
-Proyek ini merancang dan mengimplementasikan **sistem pemrosesan data skala besar** untuk melakukan klasifikasi tutupan lahan (*land cover classification*) pada tingkat piksel (segmentasi semantik) menggunakan gambar satelit resolusi tinggi. 
+Proyek ini merancang dan mengimplementasikan **sistem pemrosesan data skala besar** untuk melakukan klasifikasi tutupan lahan (*land cover classification*) pada tingkat piksel (segmentasi semantik) menggunakan gambar satelit resolusi tinggi.
 
 Menggunakan **Medallion Architecture** (Bronze → Silver → Gold) yang dijalankan pada **Apache Spark Standalone Lokal**, sistem ini mengonversi matriks citra biner raksasa menjadi bentuk tabular terdistribusi, melakukan rekayasa fitur warna (RGB), dan melatih algoritma **Random Forest Classifier** guna memetakan 5 kelas tutupan lahan secara efisien tanpa terkendala batasan memori komputasi konvensional.
 
 ### Pertanyaan Ilmiah
+
 > *Apakah arsitektur Medallion berbasis Apache Spark dalam mode Lokal Standalone mampu mengoptimalkan throughput pemrosesan piksel citra satelit resolusi tinggi dan meminimalkan latensi end-to-end training model Random Forest dibandingkan dengan pemrosesan sekuensial berbasis matriks NumPy/Pandas konvensional?*
 
----
+-----
 
 ## 👥 Anggota Tim
 
-| No | Nama | Peran | Tanggung Jawab Utama |
-|:---:|:---|:---|:---|
-| 1 | **[Nama Ketua Anda]** | 🎯 Ketua / Project Integrator | Koordinasi harian, penyusunan repositori, finalisasi proposal & laporan, integrasi modul |
-| 2 | **[Nama Anggota 2]** | 🗃️ Data Engineer | Ingesti gambar mentah, translasi matriks piksel, membangun pipeline Bronze → Silver layer |
-| 3 | **[Nama Anggota 3]** | ⚡ Spark Analytics Developer | Rekayasa fitur Gold layer (VectorAssembler), tuning hyperparameter Random Forest |
-| 4 | **[Nama Anggota 4]** | 📊 Baseline & Benchmark Specialist | Membuat pemrosesan sekuensial pembanding, mengukur rasio throughput & latensi Spark vs Pandas |
-| 5 | **[Nama Anggota 5]** | 🖥️ Environment & DevOps Specialist | Konfigurasi Environment Variables (Hadoop/Spark), manajemen alokasi RAM Driver, optimasi IO disk |
+|No |Nama                 |Peran                            |Tanggung Jawab Utama                                                                            |
+|:-:|:--------------------|:--------------------------------|:-----------------------------------------------------------------------------------------------|
+|1  |**[Nama Ketua Anda]**|🎯 Ketua / Project Integrator     |Koordinasi harian, penyusunan repositori, finalisasi proposal & laporan, integrasi modul        |
+|2  |**[Nama Anggota 2]** |🗃️ Data Engineer                  |Ingesti gambar mentah, translasi matriks piksel, membangun pipeline Bronze → Silver layer       |
+|3  |**[Nama Anggota 3]** |⚡ Spark Analytics Developer      |Rekayasa fitur Gold layer (VectorAssembler), tuning hyperparameter Random Forest                |
+|4  |**[Nama Anggota 4]** |📊 Baseline & Benchmark Specialist|Membuat pemrosesan sekuensial pembanding, mengukur rasio throughput & latensi Spark vs Pandas   |
+|5  |**[Nama Anggota 5]** |🖥️ Environment & DevOps Specialist|Konfigurasi Environment Variables (Hadoop/Spark), manajemen alokasi RAM Driver, optimasi IO disk|
 
----
+-----
 
 ## 🏗️ Arsitektur Sistem
 
@@ -87,43 +88,46 @@ Menggunakan **Medallion Architecture** (Bronze → Silver → Gold) yang dijalan
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
----
+
+-----
 
 ## 🛠️ Teknologi & Arsitektur Sistem
 
 Berikut adalah komponen teknologi yang digunakan dalam mendesain *pipeline* ini:
 
-| Kategori | Teknologi | Versi | Fungsi |
-| :--- | :--- | :--- | :--- |
-| **Big Data Engine** | Apache Spark | 3.5.8 | Pemrosesan paralel lokal & manajemen DataFrame terdistribusi. |
-| **Hadoop Windows Utility** | winutils | 3.0.0 | Jembatan sistem berkas Windows agar kompatibel dengan API HDFS. |
-| **Bahasa Pemrograman** | Python | 3.12 | Bahasa utama penulisan skrip *pipeline* & algoritma Machine Learning. |
-| **Computer Vision** | OpenCV | *Latest* | Library pembacaan citra satelit dan ekstraksi matriks warna BGR/RGB. |
-| **Format Penyimpanan** | Apache Parquet | — | Penyimpanan data kolumnar terkompresi untuk memangkas I/O disk. |
+|Kategori                  |Teknologi     |Versi   |Fungsi                                                               |
+|:-------------------------|:-------------|:-------|:--------------------------------------------------------------------|
+|**Big Data Engine**       |Apache Spark  |3.5.8   |Pemrosesan paralel lokal & manajemen DataFrame terdistribusi.        |
+|**Hadoop Windows Utility**|winutils      |3.0.0   |Jembatan sistem berkas Windows agar kompatibel dengan API HDFS.      |
+|**Bahasa Pemrograman**    |Python        |3.12    |Bahasa utama penulisan skrip *pipeline* & algoritma Machine Learning.|
+|**Computer Vision**       |OpenCV        |*Latest*|Library pembacaan citra satelit dan ekstraksi matriks warna BGR/RGB. |
+|**Format Penyimpanan**    |Apache Parquet|—       |Penyimpanan data kolumnar terkompresi untuk memangkas I/O disk.      |
 
----
+-----
 
 ## 📊 Detail Dataset
 
 Pemrosesan dilakukan hingga tingkat piksel individual untuk menangkap detail klasifikasi lahan secara presisi.
 
 ### Spesifikasi Data
-* **Nama Dataset:** DeepGlobe Land Cover Classification Dataset
-* **Unit Observasi:** Piksel Individual Citra Satelit (*pixel-level records*)
-* **Estimasi Volume Data:** **~4.194.304 baris** (Dihasilkan dari per satu pasang gambar resolusi $2048 \times 2048$)
+
+- **Nama Dataset:** DeepGlobe Land Cover Classification Dataset
+- **Unit Observasi:** Piksel Individual Citra Satelit (*pixel-level records*)
+- **Estimasi Volume Data:** **~4.194.304 baris** (Dihasilkan dari per satu pasang gambar resolusi $2048 \times 2048$)
 
 ### Skema Ekstraksi Masker Warna
+
 Setiap piksel diklasifikasikan ke dalam kategori lahan berdasarkan nilai matriks warna berikut:
 
-| Kode Warna (BGR/RGB) | Kategori Lahan / Kelas | Target Visual |
-| :--- | :--- | :--- |
-| `[0, 255, 255]` | Urban | Cyan |
-| `[255, 255, 0]` | Agriculture | Kuning |
-| `[255, 0, 255]` | Rangeland | Magenta |
-| `[0, 0, 255]` | Water | Biru |
-| `[255, 255, 255]` | Unknown | Putih |
+|Kode Warna (BGR/RGB)|Kategori Lahan / Kelas|Target Visual|
+|:-------------------|:---------------------|:------------|
+|`[0, 255, 255]`     |Urban                 |Cyan         |
+|`[255, 255, 0]`     |Agriculture           |Kuning       |
+|`[255, 0, 255]`     |Rangeland             |Magenta      |
+|`[0, 0, 255]`       |Water                 |Biru         |
+|`[255, 255, 255]`   |Unknown               |Putih        |
 
----
+-----
 
 ## 🚀 Cara Menjalankan
 
@@ -140,8 +144,8 @@ Pastikan path biner berikut sudah terdaftar di **System Environment Variables** 
 **1. Clone Repositori**
 
 ```bash
-git clone https://github.com/JARS-17/sdg10-bigdata-itera.git
-cd sdg10-bigdata-itera
+git clone https://github.com/QoisOlifio/SDGs15-bigdata-itera.git
+cd SDGs15-bigdata-itera
 ```
 
 **2. Instalasi Dependensi Python**
@@ -159,7 +163,7 @@ Buka editor visual (VS Code atau Jupyter) lalu jalankan file `notebooks/pipeline
 ## 📁 Struktur Folder
 
 ```
-sdgs15-bigdata-itera/
+SDGs15-bigdata-itera/
 ├── 📂 data_DeepGlobe/       ← DATA MENTAH CITRA (Excluded via .gitignore)
 │   ├── 📂 images/            ← Tempat file _sat.jpg
 │   └── 📂 masks/             ← Tempat file _mask.png
@@ -247,15 +251,15 @@ df_gold.write.mode("overwrite").parquet("D:/ABD_Tubes/gold_layer/gold.parquet")
 
 ## 🚦 Status Proyek
 
-|Tahapan Milestone        |Status    |Target Hari|Keterangan                                           |
-|-------------------------|----------|-----------|-----------------------------------------------------|
-|Setup Infrastruktur Lokal|✅ Selesai |Hari 1     |Integrasi Java, Winutils, dan Path Variable Windows  |
-|Implementasi Bronze Layer|✅ Selesai |Hari 2     |Ingesti jutaan piksel citra DeepGlobe ke Parquet     |
-|Implementasi Silver Layer|✅ Selesai |Hari 3     |Transformasi logika matriks RGB ke Label numerik     |
-|Implementasi Gold Layer  |✅ Selesai |Hari 4     |Rekayasa fitur menggunakan VectorAssembler           |
-|Pelatihan Model MLlib    |✅ Selesai |Hari 5     |Eksekusi RandomForestClassifier kedalaman 10         |
-|Validasi Akhir & Evaluasi|✅ Selesai |Hari 6     |Perhitungan akurasi kuantitatif via MulticlassMetrics|
-|Push GitHub & Dokumentasi|✅ Selesai |Hari 7     |Penyusunan draf laporan akademis Tubes               |
+|Tahapan Milestone        |Status   |Target Hari|Keterangan                                           |
+|-------------------------|---------|-----------|-----------------------------------------------------|
+|Setup Infrastruktur Lokal|✅ Selesai|Hari 1     |Integrasi Java, Winutils, dan Path Variable Windows  |
+|Implementasi Bronze Layer|✅ Selesai|Hari 2     |Ingesti jutaan piksel citra DeepGlobe ke Parquet     |
+|Implementasi Silver Layer|✅ Selesai|Hari 3     |Transformasi logika matriks RGB ke Label numerik     |
+|Implementasi Gold Layer  |✅ Selesai|Hari 4     |Rekayasa fitur menggunakan VectorAssembler           |
+|Pelatihan Model MLlib    |✅ Selesai|Hari 5     |Eksekusi RandomForestClassifier kedalaman 10         |
+|Validasi Akhir & Evaluasi|✅ Selesai|Hari 6     |Perhitungan akurasi kuantitatif via MulticlassMetrics|
+|Push GitHub & Dokumentasi|✅ Selesai|Hari 7     |Penyusunan draf laporan akademis Tubes               |
 
 -----
 
@@ -266,4 +270,3 @@ df_gold.write.mode("overwrite").parquet("D:/ABD_Tubes/gold_layer/gold.parquet")
 [2] DeepGlobe Land Cover Classification Challenge Dataset, 2018. CVPR Workshop.
 
 [3] M. Armbrust et al., “Delta Lake: High-Performance ACID Table Storage over Cloud Object Stores,” *Proceedings of the VLDB Endowment*, vol. 13, no. 12, pp. 3411–3424, 2020.
-
