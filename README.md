@@ -172,8 +172,8 @@ SDGs15-bigdata-itera/
 ├── 📂 notebooks/
 │   └── pipeline_medallion.ipynb  ← File inti pengerjaan end-to-end Spark lokal
 ├── 📂 docs/
-│   ├── Kelompok_14_RB_SGD15.pdf  ← Dokumen laporan akademik resmi
-|   ├── 
+│   ├── Kelompok_14_RB_SGD15.pdf  ← Dokumen laporan tugas besar
+|   ├── Kel 14_ Propo ABD Tubes_RB.pdf ← Dokumen proposal tugas besar
 │   └── 📂 screenshots/           ← Kumpulan bukti running per-layer
 ├── .gitignore               ← Proteksi agar file Parquet raksasa tidak ter-push
 └── requirements.txt         ← Daftar library dependensi python
